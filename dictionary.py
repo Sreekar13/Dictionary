@@ -6,6 +6,10 @@ data=json.load(open("/Users/sreekarreddyvelayudham/Documents/PythonProjects/Dict
 def translator(word):
     if word in data:
         return data[word]
+    elif word.title() in data:
+        return data[word.title()]
+    elif word.upper() in data:
+        return data[word.upper()]
     else :
         recommend=difflib.get_close_matches(word,data.keys(),n=1)
         word=recommend[0] if recommend else ''
